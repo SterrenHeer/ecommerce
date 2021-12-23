@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirects
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product, Cart, CartItem
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -47,7 +47,7 @@ def add_cart(request, product_id):
 
 def cart_detail(request, total=0, counter=0, cart_items=None):
     try:
-        cart = Cart.objects.get(card_id=_cart_id(request))
+        cart = Cart.objects.get(cart_id=_cart_id(request))
         cart_items = CartItem.objects.filter(cart=cart, active=True)
         for cart_item in cart_items:
             total += cart_item.product.price * cart_item.quantity

@@ -45,7 +45,7 @@ class Product(models.Model):
 
 
 class Cart(models.Model):
-    card_id = models.CharField(max_length=250, blank=True)
+    cart_id = models.CharField(max_length=250, blank=True)
     date_added = models.DateField(auto_now_add=True)
 
     class Meta:
@@ -53,7 +53,7 @@ class Cart(models.Model):
         db_table = 'Cart'
 
     def __str__(self):
-        return self.card_id
+        return self.cart_id
 
 
 class CartItem(models.Model):
